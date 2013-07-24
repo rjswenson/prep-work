@@ -1,21 +1,30 @@
 
 
 def nearest_larger(arr, idx)
-  num_of_index = arr[idx]       #num value of given index location
-  greater_idx_arr = Array.new   #holds idx's w/ num val > num_of_index
+  larger_value_array = Array.new
 
-  for x in 0..arr.length-1      
-    if arr[x] > num_of_index
-      greater_idx_arr.push(x)   #pushes all idx fitting perams to array
-    end
+  for x in 0..arr.length-1
+    larger_value_array.push(x) if arr[x] > arr[idx]
   end
 
-  return nil if greater_idx_arr.empty?     #if none > given, return nil      
-  (greater_idx_arr.length-1).times {greater_idx_arr.pop}  #pop from right to left, leaving leftmost only
-  return greater_idx_arr.pop.to_i  #return last poped out idx number
-  
+  differential = arr.length
+  nearest = idx
+  larger_value_array.map do |i|
+    
+    if i < idx  
+      if (idx - i) < differential
+        differential = (idx - i)
+        nearest = i
+      end
+    else
+      if (i - idx) < differential
+        differential = (i - idx)
+        nearest = i
+      end
+    end
+  end
+return nil if nearest == idx
+return nearest 
 end
-  
-
 
 

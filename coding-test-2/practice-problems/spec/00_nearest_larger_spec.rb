@@ -42,4 +42,12 @@ describe "#nearest_larger" do
   it "should return nil if no larger number is found" do
     nearest_larger( [2, 6, 4, 8], 3).should == nil
   end
+
+  it "handles multiple larger, closest is to the right" do
+    nearest_larger( [10, 7, 8, 9, 1], 2).should == 3
+  end
+
+  it "handles multiple larger, closest is to the left" do
+    nearest_larger( [7, 3, 5, 4, 4, 7], 2).should == 0
+  end
 end
