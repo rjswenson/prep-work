@@ -43,5 +43,16 @@ describe "#rectangle_intersection" do
       [[2, 2], [3, 5]]
     ).should == [[2, 2], [3, 4]]
   end
+  it "handles an edge case" do
+    rec_intersection(
+      [[0,0],[4,5]],
+      [[2,2],[5,4]]).should == [[2,2],[4,4]]
+  end
+  it "returns nil if 2recs are side by side" do
+    rec_intersection(
+      [[0, 0], [3, 1]],
+      [[0, 2], [3, 3]]
+    ).should == nil
+  end
 
 end

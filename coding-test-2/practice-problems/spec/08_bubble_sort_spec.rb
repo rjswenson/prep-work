@@ -19,4 +19,8 @@ describe "#bubble_sort" do
   it "sorts numbers" do
     bubble_sort([5, 4, 3, 2, 1]).should == [1, 2, 3, 4, 5]
   end
+
+  it "sorts unordered nums" do
+    bubble_sort([46, 7, 3, 19, 110]).should == [3, 7, 19, 46, 110]
+  end
 end
