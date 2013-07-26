@@ -23,4 +23,11 @@ describe "#bubble_sort" do
   it "sorts unordered nums" do
     bubble_sort([46, 7, 3, 19, 110]).should == [3, 7, 19, 46, 110]
   end
+
+  it "sort an array containing nils" do
+    bubble_sort([nil, 1, 9, 2, 4]).should == [nil, 1, 2, 4, 9]
+    bubble_sort([1, 9, nil, 2, 4]).should == [nil, 1, 2, 4, 9]
+    bubble_sort([1, 9, 4, 2, nil]).should == [nil, 1, 2, 4, 9]
+    bubble_sort([nil, nil, nil, 1]).should == [nil, nil, nil, 1]
+  end
 end

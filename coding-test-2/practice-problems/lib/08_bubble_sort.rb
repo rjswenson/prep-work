@@ -13,19 +13,19 @@ def bubble_sort(arr)
 #loop
 #break when no swaps are done
 #output new array
+  len = arr.length
 
-  return arr if (arr.length == 1  || arr.length == 0) #1 number cannot be sorted
+  return arr if (len == 1 || len == 0) #1 number cannot be sorted
   
-  
-  (arr.length-1).times do
-    for x in 0..arr.length-1
-      if arr[x+1] == nil
+
+  for n in 0..len-1
+    for x in 0..((len-1)-n)
+      if x == len-1 || arr[x] == nil
         next
-      elsif arr[x] > arr[x+1]
+      elsif arr[x+1] == nil || arr[x] > arr[x+1]
         index_adjust = arr[x]
         arr.delete_at(x)
         arr.insert(x+1, index_adjust)
-        switched = true
       end
     end
   end
